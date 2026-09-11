@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard - Smart Campus</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Welcome, <span id="userName"></span></h1>
+  <button id="logoutBtn">Logout</button>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user) {
+      // no one is logged in, kick them back to login
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("userName").textContent = user.name;
+    }
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("user");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>
