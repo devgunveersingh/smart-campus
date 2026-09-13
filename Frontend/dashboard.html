@@ -6,13 +6,13 @@
 </head>
 <body>
   <h1>Welcome, <span id="userName"></span></h1>
+  <a href="announcements.html">Announcements</a>
   <button id="logoutBtn">Logout</button>
 
   <script>
     const user = JSON.parse(localStorage.getItem("user"));
 
     if (!user) {
-      // no one is logged in, kick them back to login
       window.location.href = "login.html";
     } else {
       document.getElementById("userName").textContent = user.name;

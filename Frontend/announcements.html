@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Announcements - Smart Campus</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Announcements</h1>
+  <a href="dashboard.html">Back to Dashboard</a>
+
+  <h2>Post a New Announcement</h2>
+  <form id="announcementForm">
+    <input type="text" id="title" placeholder="Title" required>
+    <textarea id="content" placeholder="Content" required></textarea>
+    <button type="submit">Post</button>
+  </form>
+  <p id="message"></p>
+
+  <h2>All Announcements</h2>
+  <div id="announcementsList"></div>
+
+  <script src="js/announcements.js"></script>
+</body>
+</html>
