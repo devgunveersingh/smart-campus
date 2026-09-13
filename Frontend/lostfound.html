@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lost & Found - Smart Campus</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Lost & Found</h1>
+  <a href="dashboard.html">Back to Dashboard</a>
+
+  <h2>Report an Item</h2>
+  <form id="lostFoundForm">
+    <input type="text" id="itemName" placeholder="Item Name" required>
+    <textarea id="description" placeholder="Description" required></textarea>
+    <input type="text" id="location" placeholder="Location" required>
+    <select id="status" required>
+      <option value="LOST">Lost</option>
+      <option value="FOUND">Found</option>
+    </select>
+    <button type="submit">Report</button>
+  </form>
+  <p id="message"></p>
+
+  <h2>All Items</h2>
+  <div id="lostFoundList"></div>
+
+  <script src="js/lostfound.js"></script>
+</body>
+</html>
