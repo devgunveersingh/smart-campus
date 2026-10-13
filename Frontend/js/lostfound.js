@@ -7,7 +7,10 @@ if (!user) {
 
 async function loadItems() {
   try {
-    const response = await fetch(API_URL);
+    const filter = document.getElementById("filterStatus").value;
+    const url = filter === "ALL" ? API_URL : `${API_URL}/status/${filter}`;
+
+    const response = await fetch(url);
     const items = await response.json();
 
     const listDiv = document.getElementById("lostFoundList");
@@ -26,6 +29,7 @@ async function loadItems() {
         <p>${item.description}</p>
         <p><strong>Location:</strong> ${item.location}</p>
         <small>Reported by: ${item.reportedBy ? item.reportedBy.name : "Unknown"}</small>
+        ${user.role === "ADMIN" ? `<br><button onclick="deleteItem(${item.id})">Delete</button>` : ""}
       `;
       listDiv.appendChild(div);
     });
@@ -67,5 +71,20 @@ form.addEventListener("submit", async (e) => {
     document.getElementById("message").textContent = "Could not reach the server.";
   }
 });
+document.getElementById("filterStatus").addEventListener("change", loadItems);
 
+async function deleteItem(id) {
+  if (!confirm("Delete this item?")) return;
+
+  try {
+    const response = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+    if (response.ok) {
+      loadItems();
+    } else {
+      document.getElementById("message").textContent = "Failed to delete.";
+    }
+  } catch (err) {
+    document.getElementById("message").textContent = "Could not reach the server.";
+  }
+}
 loadItems();

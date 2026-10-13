@@ -31,4 +31,9 @@ public class LostFoundController {
     public List<LostFoundItem> getItemsByStatus(@PathVariable LostFoundItem.Status status) {
         return lostFoundService.getItemsByStatus(status);
     }
+    // DELETE /api/lostfound/{id}  -> remove an item
+    @DeleteMapping("/{id}")
+    public void deleteItem(@PathVariable Integer id) {
+        lostFoundService.deleteItem(id);
+    }
 }
