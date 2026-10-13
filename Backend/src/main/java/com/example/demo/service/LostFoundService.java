@@ -26,5 +26,11 @@ public class LostFoundService {
     // List items filtered by status (LOST or FOUND)
     public List<LostFoundItem> getItemsByStatus(LostFoundItem.Status status) {
         return lostFoundRepository.findByStatus(status);
+
+    }
+
+    // Delete an item by its id
+    public void deleteItem(Integer id) {
+        lostFoundRepository.deleteById(id);
     }
 }
