@@ -5,10 +5,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome, <span id="userName"></span></h1>
-  <a href="announcements.html">Announcements</a>
-  <a href="lostfound.html">Lost & Found</a>
-  <button id="logoutBtn">Logout</button>
+  <div class="topbar">
+    <span class="brand">Smart Campus</span>
+    <div>
+      <span class="welcome">Hi, <span id="userName"></span></span>
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </div>
+
+  <h1>Dashboard</h1>
+  <div class="card-grid">
+    <a class="card" href="announcements.html">
+      <h2>📢 Announcements</h2>
+      <p>See the latest campus notices.</p>
+    </a>
+    <a class="card" href="lostfound.html">
+      <h2>🎒 Lost &amp; Found</h2>
+      <p>Report or browse lost items.</p>
+    </a>
+  </div>
 
   <script>
     const user = JSON.parse(localStorage.getItem("user"));
