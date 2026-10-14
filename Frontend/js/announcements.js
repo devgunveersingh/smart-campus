@@ -14,11 +14,21 @@ async function loadAnnouncements() {
     }
 
     announcements.reverse().forEach((a) => {
-      const item = document.createElement("div");
-      item.className = "announcement-item";
-      item.innerHTML = `<h3>${a.title}</h3><p>${a.content}</p><small>${new Date(a.createdAt).toLocaleString()}</small>`;
-      listDiv.appendChild(item);
-    });
+  const item = document.createElement("div");
+  item.className = "announcement-item";
+
+  const title = document.createElement("h3");
+  title.textContent = a.title;
+
+  const content = document.createElement("p");
+  content.textContent = a.content;
+
+  const date = document.createElement("small");
+  date.textContent = new Date(a.createdAt).toLocaleString();
+
+  item.append(title, content, date);
+  listDiv.appendChild(item);
+});
   } catch (err) {
     document.getElementById("announcementsList").textContent = "Could not load announcements.";
   }
