@@ -81,3 +81,29 @@ button:hover { background: #26559b; }
 }
 
 .card h2 { margin-top: 0; color: #1a3c6e; }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  background: #1f3a5f;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.nav-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+}
